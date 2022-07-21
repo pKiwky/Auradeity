@@ -1,10 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Auradeity.Application.Interfaces;
+using Auradeity.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auradeity.Infrastructure.Data {
 
-	public class ApplicationDbContext : DbContext {
+    public class ApplicationDbContext : DbContext, IApplicationDbContext {
+        public DbSet<AccountEntity> Accounts { get; set; }
 
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-	}
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+    }
 
 }
