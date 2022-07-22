@@ -12,7 +12,7 @@ namespace Auradeity.Domain.Entities {
 
     public class TrackableEntity : BaseEntity {
         [Column("created_date")]
-        public DateTime DateCreated { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         [Column("updated_date")]
         public DateTime? UpdatedDate { get; set; }

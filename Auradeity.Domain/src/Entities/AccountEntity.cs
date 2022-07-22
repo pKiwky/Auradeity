@@ -2,7 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auradeity.Domain.Entities {
-
+    
+    [Table("accounts")]
     public class AccountEntity : TrackableEntity {
         [MaxLength(64)]
         [Column("username")]

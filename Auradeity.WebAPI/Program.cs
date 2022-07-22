@@ -2,19 +2,21 @@ using Auradeity.Application.Contracts;
 using Auradeity.Application.Handlers;
 using Auradeity.Application.Interfaces;
 using Auradeity.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// WebAPI
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>(options => { options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
-// Application
 builder.Services.AddScoped<IAuthenticationCommand, AuthenticationCommand>();
 builder.Services.AddScoped<IAuthenticationQuery, AuthenticationQuery>();
+builder.Services.AddScoped<IJwtQueryService, JwtQueryService>();
 
-// Infrastructure
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
 var app = builder.Build();
