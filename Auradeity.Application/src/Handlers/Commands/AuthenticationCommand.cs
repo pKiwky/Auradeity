@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 using Auradeity.Application.Contracts;
 using Auradeity.Application.Interfaces;
 using Auradeity.Domain.Entities;
@@ -20,10 +21,13 @@ namespace Auradeity.Application.Handlers {
             try {
                 var accountAlreadyExists = await _applicationDbContext.Accounts
                     .AsNoTracking()
-                    .AnyAsync(entity => entity.Username == requestRegisterModel.Username.Trim().ToLower());
+                    .AnyAsync(entity =>
+                        entity.Username == requestRegisterModel.Username.Trim().ToLower() ||
+                        entity.Email == requestRegisterModel.Email.Trim().ToLower()
+                    );
 
                 if (accountAlreadyExists == true) {
-                    return "User  already exists!";
+                    return "Username or email already exists!";
                 }
 
                 ComputeHashPassword(requestRegisterModel.Password, out byte[] keyPassword, out byte[] hashPassword);
@@ -51,7 +55,6 @@ namespace Auradeity.Application.Handlers {
             keyPassword = hmac.Key;
             hashPassword = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
         }
-
     }
 
 }

@@ -21,8 +21,8 @@ namespace Auradeity.Infrastructure.Migrations
                     key_password = table.Column<byte[]>(type: "bytea", nullable: false),
                     hash_password = table.Column<byte[]>(type: "bytea", nullable: false),
                     deleted = table.Column<bool>(type: "boolean", nullable: false),
-                    created_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    updated_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    created_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    updated_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
                 },
                 constraints: table =>
                 {

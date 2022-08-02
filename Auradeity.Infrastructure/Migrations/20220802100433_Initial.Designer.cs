@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auradeity.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220722082635_Initial")]
+    [Migration("20220802100433_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,8 @@ namespace Auradeity.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("created_date");
 
                     b.Property<string>("Email")
@@ -58,7 +58,7 @@ namespace Auradeity.Infrastructure.Migrations
                         .HasColumnName("key_password");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("updated_date");
 
                     b.Property<string>("Username")

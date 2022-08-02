@@ -7,14 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Auradeity.Domain\Auradeity.Domain.csproj"/>
+        <ProjectReference Include="..\Auradeity.Domain\Auradeity.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.21.0"/>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.21.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
     </ItemGroup>
 
 </Project>

@@ -11,4 +11,10 @@
     <Folder Include="src\Models\Response\Queries" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MimeKit">
+      <HintPath>..\..\..\..\.nuget\packages\mimekit\3.3.0\lib\net6.0\MimeKit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

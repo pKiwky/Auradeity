@@ -2,6 +2,7 @@
 using Auradeity.Application.Interfaces;
 using Auradeity.Domain.Models.Request;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 
 namespace Auradeity.Application.Handlers {
 

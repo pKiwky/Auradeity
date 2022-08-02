@@ -1,6 +1,9 @@
 ﻿using Auradeity.Application.Contracts;
+using Auradeity.Application.Interfaces;
+using Auradeity.Domain.Models;
 using Auradeity.Domain.Models.Request;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 
 namespace Auradeity.WebAPI.Controllers {
 
