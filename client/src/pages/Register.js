@@ -4,7 +4,7 @@ import RegisterForm from "../components/forms/register_form";
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setconfirmPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
 
     function onUsernameChanged(data) { }

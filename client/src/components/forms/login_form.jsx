@@ -4,7 +4,7 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({
-    onUsernameChanged, onPasswordChanged
+    onUsernameChanged, onPasswordChanged, onSubmit
 }) => {
     const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const LoginForm = ({
                         <button type="button" className="btn btn-danger w-25" onClick={() => navigate("/register")}>Toggle</button>
                     </div>
                     <div className="btn-group w-50" role="group">
-                        <button type="button" className="btn btn-primary w-75">Login</button>
+                        <button type="button" className="btn btn-primary w-75" onClick={onSubmit}>Login</button>
                     </div>
                 </div>
             </form>
