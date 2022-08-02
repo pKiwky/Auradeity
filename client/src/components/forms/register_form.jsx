@@ -3,9 +3,11 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 
 import { useNavigate } from "react-router-dom";
 
-const RegisterForm = () => {
+const RegisterForm = ({
+    onUsernameChanged, onPasswordChanged, onConfirmPasswordChanged, onEmailChanged
+}) => {
     const navigate = useNavigate();
-    
+
     return (
         <div id="authentication">
             <form id="register">
@@ -17,7 +19,7 @@ const RegisterForm = () => {
                             <FontAwesomeIcon icon={solid('user-alt')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Username" aria-label="Username" />
+                    <input type="text" className="form-control" placeholder="Username" aria-label="Username" onChange={onUsernameChanged} />
                 </div>
 
                 <div className="input-group mb-2 w-75">
@@ -26,7 +28,7 @@ const RegisterForm = () => {
                             <FontAwesomeIcon icon={solid('key')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Password" aria-label="Password" />
+                    <input type="text" className="form-control" placeholder="Password" aria-label="Password" onChange={onPasswordChanged} />
                 </div>
 
                 <div className="input-group mb-2 w-75">
@@ -35,7 +37,7 @@ const RegisterForm = () => {
                             <FontAwesomeIcon icon={solid('key')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Confirm password" aria-label="Confirm password" />
+                    <input type="text" className="form-control" placeholder="Confirm password" aria-label="Confirm password" onChange={onConfirmPasswordChanged} />
                 </div>
 
                 <div className="input-group mb-2 w-75">
@@ -44,7 +46,7 @@ const RegisterForm = () => {
                             <FontAwesomeIcon icon={solid('at')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Email" aria-label="Email" />
+                    <input type="text" className="form-control" placeholder="Email" aria-label="Email" onChange={onEmailChanged} />
                 </div>
 
                 <div className="d-flex justify-content-center mx-1">

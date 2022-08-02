@@ -1,20 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
-
 import './App.css';
 import './styles/auth.css';
-import LoginForm from "./components/forms/login_form";
-import RegisterForm from "./components/forms/register_form";
+import 'bootstrap/dist/css/bootstrap.css';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from './pages/Register';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="login" element={<LoginForm />} />
-                <Route path="register" element={<RegisterForm />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
             </Routes>
         </BrowserRouter>
     );

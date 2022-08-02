@@ -3,7 +3,9 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({
+    onUsernameChanged, onPasswordChanged
+}) => {
     const navigate = useNavigate();
 
     return (
@@ -14,10 +16,10 @@ const LoginForm = () => {
                 <div className="input-group mb-2 w-75">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
-                            <FontAwesomeIcon icon={solid('at')} />
+                            <FontAwesomeIcon icon={solid('user-alt')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Email" aria-label="Email" />
+                    <input type="text" className="form-control" placeholder="Username" aria-label="Username" onChange={onUsernameChanged} />
                 </div>
 
                 <div className="input-group mb-2 w-75">
@@ -26,7 +28,7 @@ const LoginForm = () => {
                             <FontAwesomeIcon icon={solid('key')} />
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Password" aria-label="Password" />
+                    <input type="text" className="form-control" placeholder="Password" aria-label="Password" onChange={onPasswordChanged} />
                 </div>
 
                 <div className="d-flex justify-content-center mx-1">
