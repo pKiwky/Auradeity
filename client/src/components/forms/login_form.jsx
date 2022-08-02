@@ -1,35 +1,44 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+import { useNavigate } from "react-router-dom";
+
 const LoginForm = () => {
+    const navigate = useNavigate();
+
     return (
-        <form>
-            <h5 class="title">Login</h5>
+        <div id="authentication">
+            <form id="login">
+                <h5 className="title">Login</h5>
 
-            <div className="input-group mb-2 w-75">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fas fa-at"></i>
-                    </span>
+                <div className="input-group mb-2 w-75">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            <FontAwesomeIcon icon={solid('at')} />
+                        </span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="Email" aria-label="Email" />
                 </div>
-                <input type="text" class="form-control" placeholder="Email" aria-label="Email" />
-            </div>
 
-            <div class="input-group mb-2 w-75">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fas fa-key"></i>
-                    </span>
+                <div className="input-group mb-2 w-75">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            <FontAwesomeIcon icon={solid('key')} />
+                        </span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="Password" aria-label="Password" />
                 </div>
-                <input type="text" class="form-control" placeholder="Password" aria-label="Password" />
-            </div>
 
-            <div class="d-flex justify-content-center mx-1">
-                <div class="btn-group w-25 mr-2" role="group">
-                    <button type="button" class="btn btn-danger w-25" onclick="openRegister()">Register</button>
+                <div className="d-flex justify-content-center mx-1">
+                    <div className="btn-group w-25 mr-2" role="group">
+                        <button type="button" className="btn btn-danger w-25" onClick={() => navigate("/register")}>Toggle</button>
+                    </div>
+                    <div className="btn-group w-50" role="group">
+                        <button type="button" className="btn btn-primary w-75">Login</button>
+                    </div>
                 </div>
-                <div class="btn-group w-50" role="group">
-                    <button type="button" class="btn btn-primary w-75">Login</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 }
 
