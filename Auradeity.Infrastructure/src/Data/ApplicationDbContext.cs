@@ -6,6 +6,7 @@ namespace Auradeity.Infrastructure.Data {
 
     public class ApplicationDbContext : DbContext, IApplicationDbContext {
         public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<WeatherDataEntity> WeatherDatas { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

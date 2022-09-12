@@ -1,6 +1,6 @@
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
-
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({
@@ -9,7 +9,7 @@ const LoginForm = ({
     const navigate = useNavigate();
 
     return (
-        <div id="authentication">
+        <div className="app-form">
             <form id="login">
                 <h5 className="title">Login</h5>
 

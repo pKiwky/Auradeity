@@ -1,9 +1,12 @@
+import React from 'react'
 import { useEffect, useState } from "react";
-import LoginForm from "../components/forms/login_form";
+import RegisterForm from "../../forms/register_form";
 
-function Login() {
+function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [email, setEmail] = useState('');
 
     function onUsernameChanged(data) {
         setUsername(data.target.value)
@@ -13,12 +16,20 @@ function Login() {
         setPassword(data.target.value)
     }
 
-    function onSubmit(data) {
-        login();
+    function onConfirmPasswordChanged(data) {
+        setConfirmPassword(data.target.value)
     }
 
-    async function login() {
-        let result = await fetch("https://localhost:7103/api/Authentication/login", {
+    function onEmailChanged(data) {
+        setEmail(data.target.value)
+    }
+
+    function onSubmit(data) {
+        register();
+    }
+
+    async function register() {
+        let result = await fetch("https://localhost:7103/api/Authentication/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,26 +37,30 @@ function Login() {
             },
             body: JSON.stringify({
                 username: username,
-                password: password
+                password: password,
+                confirmPassword: confirmPassword,
+                email: email
             })
         }).then(async (response) => {
-            if(response.ok == false) {
+            if (response.ok == false) {
                 // Ceva eroare aici.
                 return;
             }
-            
+
             var token = await response.json();
-            // Salvare token in storage.
+            localStorage.setItem('token', token);
         });
     }
 
     return (
-        <LoginForm
+        <RegisterForm
             onUsernameChanged={onUsernameChanged}
             onPasswordChanged={onPasswordChanged}
+            onConfirmPasswordChanged={onConfirmPasswordChanged}
+            onEmailChanged={onEmailChanged}
             onSubmit={onSubmit}
         />
     )
 }
 
-export default Login;
+export default Register;

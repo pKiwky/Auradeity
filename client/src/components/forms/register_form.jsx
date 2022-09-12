@@ -1,15 +1,16 @@
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 import { useNavigate } from "react-router-dom";
 
 const RegisterForm = ({
-    onUsernameChanged, onPasswordChanged, onConfirmPasswordChanged, onEmailChanged
+    onUsernameChanged, onPasswordChanged, onConfirmPasswordChanged, onEmailChanged, onSubmit
 }) => {
     const navigate = useNavigate();
 
     return (
-        <div id="authentication">
+        <div className="app-form">
             <form id="register">
                 <h5 className="title">Register</h5>
 
@@ -54,7 +55,7 @@ const RegisterForm = ({
                         <button type="button" className="btn btn-danger w-25" onClick={() => navigate("/login")}>Toggle</button>
                     </div>
                     <div className="btn-group w-50" role="group">
-                        <button type="button" className="btn btn-primary w-75">Register</button>
+                        <button type="button" className="btn btn-primary w-75" onClick={onSubmit}>Register</button>
                     </div>
                 </div>
             </form>
